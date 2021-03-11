@@ -1,14 +1,14 @@
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-//  }
+ }
 // Array of special characters to be included in password
 var specialCharacters = [
   '@',
@@ -98,32 +98,30 @@ var upperCasedCharacters = [
  var allCharacters = [numericCharacters, specialCharacters, lowerCasedCharacters, upperCasedCharacters]
 ;
 
+function generatePassword ()
+{
+  var currentPassword = "";
+  var passLength = getRandomAmount (120 , 8) 
+  passLength= Math.round(passLength)
+
+
+  while (currentPassword.length < passLength)
+  {
+    var randomIndex =  Math.floor(Math.random() * allCharacters.length)
+    var randomArray = allCharacters[randomIndex]
+    var chararterIndex = Math.floor(Math.random() * randomArray.length)
+    currentPassword = currentPassword + randomArray[chararterIndex]
+
+  }
+  return currentPassword
+}
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
 function getRandomAmount(max, min) 
 { 
   return Math.random() * (max - min) + min; 
 } 
-
-var currentPassword = "";
-
-var passLength = getRandomAmount (120 , 8) 
-passLength= Math.round(passLength)
-
-while (currentPassword.length < passLength)
-{
-  var randomIndex =  Math.floor(Math.random() * allCharacters.length)
-
-  var randomArray = allCharacters[randomIndex]
-
-  var chararterIndex = Math.floor(Math.random() * randomArray.length)
-
-
-  currentPassword = currentPassword + randomArray[chararterIndex]
-  console.log ("the random charater index is " + chararterIndex)
-
-}
-
-console.log (passLength)
-console.log (currentPassword)
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);

@@ -95,11 +95,42 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
- var allCharacters = [numericCharacters, specialCharacters, lowerCasedCharacters, upperCasedCharacters]
-;
+
+
 
 function generatePassword ()
 {
+  var allCharacters = []
+
+  var checkSpecial = document.getElementById("checkSpecial").checked;
+  var checkNumber = document.getElementById("checkNumber").checked;
+  var checkUpper = document.getElementById("checkUpper").checked;
+  var checkLower = document.getElementById("checkLower").checked;
+
+  if (
+    checkSpecial === false &&
+    checkNumber === false &&
+    checkLower === false &&
+    checkUpper === false
+) {
+    alert ("Please select at least one type");
+    return;
+}
+
+if (checkSpecial === true)
+    {allCharacters.push (specialCharacters)}
+
+if (checkNumber === true)
+    {allCharacters.push (numericCharacters)}
+
+if (checkLower === true)
+    {allCharacters.push (lowerCasedCharacters)}
+
+if (checkUpper === true)
+    {allCharacters.push (upperCasedCharacters)}
+
+
+
   var currentPassword = "";
   var passLength = getRandomAmount (120 , 8) 
   passLength= Math.round(passLength)

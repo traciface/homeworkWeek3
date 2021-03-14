@@ -106,13 +106,16 @@ function generatePassword ()
   var checkNumber = document.getElementById("checkNumber").checked;
   var checkUpper = document.getElementById("checkUpper").checked;
   var checkLower = document.getElementById("checkLower").checked;
+  var passLength = document.getElementById("passLength").value
+
 
   if (
     checkSpecial === false &&
     checkNumber === false &&
     checkLower === false &&
     checkUpper === false
-) {
+) 
+{
     alert ("Please select at least one type");
     return;
 }
@@ -132,9 +135,6 @@ if (checkUpper === true)
 
 
   var currentPassword = "";
-  var passLength = getRandomAmount (120 , 8) 
-  passLength= Math.round(passLength)
-
 
   while (currentPassword.length < passLength)
   {
